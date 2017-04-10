@@ -1,0 +1,116 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="user-scalable=no">
+	<title>新年愿景</title>
+	<link rel="stylesheet" type="text/css" href="../css/wish.css">
+	<link rel="stylesheet" type="text/css" href="../css/lib_cropper.min.css">
+</head>
+<body>
+
+
+<!-- 	<div id = "new">
+		许下一个愿望
+	</div> -->
+	<div id = "new">
+		<img src="../imgs/hamburger.png">
+	</div>
+	<div id = "new-wish" class = "button">许愿</div>
+	
+
+
+	<div id = "new-wish-editor">
+            <div id = "close-new-wish-editor-show">+</div>
+		<img id = "img-for-cropper" src="">
+	    <span id = "change-pic">
+	    <a href="#" class="myButton">选择一张图片
+			<input type = "file"  id = "file-reader">
+			
+	    </a><span class = "hint-text"><br>为增加节日气氛，上传图片后才能许愿哦<br>若图片过大请耐心等候加载</span></span>
+		<div id = "uploader">
+			<div id = 'gif'>
+				<div><img src="../imgs/ripple.svg"></div>
+				<div>上传中...</div>
+			</div>
+		    <a href="#" id = 'pic-submit' class="myButton">上传</a>
+		</div>
+		
+
+
+		<div id = "new-wish-text-container">
+			<div class = "wish-wrapper">
+				<textarea id = "wish">(不超过150字)</textarea>
+			</div>
+			<a href="#" id = 'wish-submit' class="myButton">提交</a>
+		</div>
+	</div>
+
+
+
+
+	<div class = "wish-list-container">
+		<div id = "close-container">
+			<div id = "close" class = "button">-</div>
+		</div>
+		<div id = "wish-list">
+
+		</div>
+	</div>
+
+
+	<div class  = "fetch-loading">
+		<div>
+			<img src="../imgs/ripple.svg">
+		</div>
+	</div>
+
+
+
+	<div id = "progress-bar-wrapper">
+		<div id = "progress-bar-container">
+			<div id = "loaded">0%</div>
+
+			<div id = "qingmei">
+<!-- 				<div id = "progress-bar"></div> -->
+				<img id = "qingmeilogo" src="../imgs/qingmei.png">
+			</div>
+			<div id = "danwei">中山大学团委青年传媒中心</div>
+                        
+		</div>
+	</div>
+
+
+
+	<div id = "detail-wish-wrapper">
+		<div id = "detail-wish-container">
+			<div id  = "detail-wish-img">
+				<span id = "close-detail-wish">关闭</span>
+				    <img id ="detail-wish-image" src="">
+			</div>
+			<div id = "detail-wish-txt">
+			</div>
+		</div>
+
+	</div>
+
+	<script type="text/javascript" src = "../js/libs/lib_jquery-3.1.1.min.js"></script>
+	<script type="x-shader/x-vertex" id="vertexshader">
+		attribute float size;
+		// attribute vec3 customColor;
+		// varying vec3 vColor;
+		void main() {
+			// vColor = customColor;
+			vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
+			gl_PointSize = size * ( 300.0 / -mvPosition.z );
+			gl_Position = projectionMatrix * mvPosition;
+		}
+	</script>
+	<script type="x-shader/x-fragment" id="fragmentshader">
+		uniform sampler2D texture;
+		void main() {
+			gl_FragColor = vec4( 1,1,1, 1.0 );
+			gl_FragColor = gl_FragColor * texture2D( texture, gl_PointCoord );
+		}
+	</script>
+</body>
+</html>
